@@ -36,7 +36,7 @@
 #include<stdint.h>
 #include<stdbool.h>
 
-#define QUEUE_CAPACITY_BYTES 500
+#define QUEUE_CAPACITY_BYTES 1000
 
 // Node structure including data length
 typedef struct node {
