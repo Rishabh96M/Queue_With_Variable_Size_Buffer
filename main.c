@@ -21,13 +21,14 @@ int main() {
 
     while(true) {
         if(!queuePush(&q, data, sizeof(data)/sizeof(uint8_t))) {
-            printf("Queue is full, Queue size is %u\n", queueSize(&q));
+            printf("Queue is full\n");
+            printf("Queue size: %u, and footprint: %u\n", queueSize(&q), q.footprint);
             break;
         }
         data[0]++;
     }
 
-    printf("/nContents of the Queue are: /n");
+    printf("\nContents of the Queue are: \n");
 
     node_t *temp;
     while(true) {
