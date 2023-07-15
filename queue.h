@@ -3,7 +3,8 @@
  * 
  * @file queue.h
  * @author Rishabh Mukund (rishabh.m96@gmail.com)
- * @brief Header file for queue with a linked list of variable size multibyte buffer
+ * @brief Header file for queue with a linked list of variable size multibyte 
+ *        buffer
  * @version 0.1
  * @date 14/07/2023
  * 
@@ -33,10 +34,11 @@
 #define __SB_QUEUE_H
 
 #include<stdint.h>
+#include<stdbool.h>
 
-#define QUEUE_CAPACITY_BYTES 1000
+#define QUEUE_CAPACITY_BYTES 10000
 
-/* Node structure including data length */
+// Node structure including data length
 typedef struct node {
     uint8_t *data;
     uint8_t size;
@@ -44,7 +46,7 @@ typedef struct node {
 } node_t;
 
 
-/* Queue structure */
+// Queue structure
 typedef struct myqueue {
     node_t *head;
     node_t *tail;
