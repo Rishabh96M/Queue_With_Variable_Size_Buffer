@@ -5,7 +5,7 @@
  * @author Rishabh Mukund (rishabh.m96@gmail.com)
  * @brief Header file for queue with a linked list of variable size multibyte 
  *        buffer
- * @version 0.1
+ * @version 1.1
  * @date 14/07/2023
  * 
  * MIT License
