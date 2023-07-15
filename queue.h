@@ -29,4 +29,33 @@
  * 
 */
 
+#ifndef __SB_QUEUE_H
+#define __SB_QUEUE_H
+
 #include<stdint.h>
+
+#define QUEUE_CAPACITY_BYTES 1000
+
+/* Node structure including data length */
+typedef struct node {
+    uint8_t *data;
+    uint8_t size;
+    struct node *next;
+} node_t;
+
+
+/* Queue structure */
+typedef struct myqueue {
+    node_t *head;
+    node_t *tail;
+    uint16_t size;
+    uint16_t footprint;
+} myqueue_t;
+
+
+void queueInit (myqueue_t *q);
+bool queuePush (myqueue_t *q, const void *data, uint8_t dataLen);
+uint8_t* queuePop (myqueue_t *q);
+uint16_t queueSize (myqueue_t *q);
+
+#endif /* __SB_QUEUE_H */
