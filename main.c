@@ -41,6 +41,9 @@ int main() {
         for(uint8_t i = 0; i < temp->size; i++) {
             printf("%x, ", temp->data[i]);
         }
+
+        free(temp->data);
+        free(temp);
         printf("\r\n");
     }
 }
