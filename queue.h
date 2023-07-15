@@ -57,7 +57,7 @@ typedef struct myqueue {
 
 void queueInit (myqueue_t *q);
 bool queuePush (myqueue_t *q, const void *data, uint8_t dataLen);
-uint8_t* queuePop (myqueue_t *q);
+node_t* queuePop (myqueue_t *q);
 uint16_t queueSize (myqueue_t *q);
 
 #endif /* __SB_QUEUE_H */

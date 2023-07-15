@@ -62,6 +62,11 @@ void queueInit (myqueue_t *q) {
  * @return bool - true if successfully pushed, false otherwise
 */
 bool queuePush (myqueue_t *q, const void *data, uint8_t dataLen) {
+    // Check if queue exists
+    if(q == NULL) {
+        return false;
+    }
+
     // Check if the data will fit
     if(q->footprint + ((dataLen + 1) * sizeof(uint8_t)) + sizeof(node_t *)
         > QUEUE_CAPACITY_BYTES) {
@@ -100,4 +105,56 @@ bool queuePush (myqueue_t *q, const void *data, uint8_t dataLen) {
     q->footprint += ((dataLen + 1) * sizeof(uint8_t)) + sizeof(node_t *);
 
     return true;
+}
+
+
+/**
+ * @brief Remove an item from the queue. Changes the front of queue
+ * @details Returns a pointer to the top node and removes it from the queue.
+ * 
+ * @param q - pointer to the queue to pop from
+ * 
+ * @return node_t* - pointer to the poped node
+*/
+node_t* queuePop (myqueue_t *q) {
+    // Check if queue exists
+    if(q == NULL) {
+        return NULL;
+    }
+
+    // Check if queue is empty
+    if(q->size == 0) {
+        return NULL;
+    }
+
+    node_t *tempNode = q->head;
+
+    if(q->size > 1) {
+        q->head = q->head->next;
+    }
+    else {
+        q->head = NULL;
+        q->tail = NULL;
+    }
+
+    q->size--;
+    tempNode->next = NULL;
+
+    return tempNode;
+}
+
+
+/**
+ * @brief returns size of queue
+ * 
+ * @param  q - pointer to the queue to check
+ *
+ * @return uint16_t - size of queue (-1 if queue doesnt exist)
+*/
+uint16_t queueSize (myqueue_t *q) {
+    // Check if queue exists
+    if(q == NULL)
+        return -1;
+
+    return q->size;
 }
