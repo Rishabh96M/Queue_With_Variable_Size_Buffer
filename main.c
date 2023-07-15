@@ -20,7 +20,7 @@ int main() {
     queueInit(&q);
 
     while(true) {
-        if(!queuePush(&q, data, 10)) {
+        if(!queuePush(&q, data, sizeof(data)/sizeof(uint8_t))) {
             printf("Queue is full, Queue size is %u\n", queueSize(&q));
             break;
         }

@@ -139,6 +139,7 @@ node_t* queuePop (myqueue_t *q) {
     }
 
     q->size--;
+    q->footprint -= ((tempNode->size + 1) * sizeof(uint8_t)) + sizeof(node_t *);
     tempNode->next = NULL;
 
     return tempNode;
