@@ -8,6 +8,7 @@
  * @version 1.1
  * @date 14/07/2023
  * 
+ * 
  * MIT License
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +30,7 @@
  * THE SOFTWARE.
  * 
 */
+
 
 #include "queue.h"
 

@@ -6,11 +6,13 @@
  * @date 14/07/2023
 */
 
+
 #include "queue.h"
 #include<stdio.h>
 #include<stdint.h>
 #include<stdlib.h>
 #include<stdbool.h>
+
 
 int main() {
     myqueue_t q;
@@ -33,7 +35,8 @@ int main() {
     while(true) {
         temp = queuePop(&q);
         if(temp == NULL) {
-            printf("Queue is empty");
+            printf("Queue is empty\n");
+            printf("Queue size: %u, and footprint: %u\n", queueSize(&q), q.footprint);
             break;
         }
 
